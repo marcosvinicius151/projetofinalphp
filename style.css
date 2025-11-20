@@ -1,0 +1,292 @@
+/* --- CONFIGURAÇÕES DE CORES (PALETA DARK) --- */
+:root {
+    --primary-red: #D60000;
+    --dark-red: #a30000;
+    
+    /* Paleta de Cinzas */
+    --bg-page: #121212;       /* Fundo da página (Cinza Chumbo) */
+    --bg-card: #1E1E1E;       /* Fundo dos cards (Um pouco mais claro) */
+    --bg-section-alt: #0a0a0a; /* Fundo alternativo (Quase preto) */
+    --border-color: #333333;  /* Cor das bordas sutis */
+    
+    --text-main: #e0e0e0;     /* Texto padrão (Cinza claro) */
+    --text-white: #ffffff;    /* Títulos */
+
+    /* Arredondamento */
+    --radius-cards: 20px; 
+    --radius-btn: 50px; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Teko', Arial, sans-serif; 
+    letter-spacing: 0.8px;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Classes Utilitárias */
+.text-red { color: var(--primary-red); }
+.white-text { color: var(--text-white); }
+
+/* --- CABEÇALHO --- */
+.main-header {
+    background-color: #000; /* Preto absoluto no menu */
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--primary-red);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.logo {
+    color: var(--text-white);
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.navbar a {
+    color: #999;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.navbar a:hover {
+    color: var(--primary-red);
+}
+
+.cta-button-header {
+    background-color: var(--primary-red);
+    color: var(--text-white);
+    padding: 8px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: var(--radius-btn);
+    transition: 0.3s;
+}
+
+.cta-button-header:hover {
+    background-color: var(--dark-red);
+    transform: scale(1.05);
+}
+
+/* --- HERO SECTION (CAPA) --- */
+.hero {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg-page)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    /* O gradiente no final da imagem faz ela "fundir" com o cinza do site */
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 15px;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.8);
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+/* --- BOTÕES --- */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-red);
+    color: var(--text-white);
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid var(--primary-red);
+    text-transform: uppercase;
+    border-radius: var(--radius-btn);
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-red);
+    box-shadow: 0 0 15px rgba(214, 0, 0, 0.4); /* Efeito de brilho */
+}
+
+.btn-secondary {
+    display: inline-block;
+    border: 2px solid #555;
+    color: #ccc;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: var(--radius-btn);
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary-red);
+    color: var(--primary-red);
+}
+
+/* --- ESTRUTURA --- */
+.section-padrao {
+    padding: 90px 0;
+}
+
+/* Seção Alternativa (Fundo quase preto) */
+.bg-black {
+    background-color: var(--bg-section-alt); 
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.section-title {
+    color: var(--text-white);
+    font-size: 3rem;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* --- CARDS GERAIS --- */
+.grid-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    /* Fundo Cinza Médio para todos os cards */
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    padding: 40px 30px;
+    border-radius: var(--radius-cards);
+    border: 1px solid var(--border-color);
+    flex: 1;
+    min-width: 280px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-red);
+    background-color: #252525; /* Clareia levemente no hover */
+}
+
+.card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: var(--text-white);
+}
+
+/* Removemos estilos específicos de .dark-card pois TUDO agora é dark */
+
+/* --- PLANOS --- */
+.plan-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 50px 20px;
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+    border-radius: var(--radius-cards);
+    overflow: hidden;
+}
+
+.plan-card.highlight {
+    border: 2px solid var(--primary-red);
+    transform: scale(1.05);
+    z-index: 10;
+    background-color: #181818; /* Um pouco mais escuro para dar contraste */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-red);
+    color: white;
+    padding: 5px 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.price {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 20px 0;
+    color: var(--text-white);
+}
+
+.plan-list {
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 0;
+}
+
+.plan-list li {
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    color: #999;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: #050505; /* Quase preto */
+    color: #555;
+    text-align: center;
+    padding: 40px;
+    border-top: 3px solid var(--primary-red);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    margin-top: -30px; 
+    position: relative;
+    z-index: 100;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
