@@ -5,7 +5,7 @@ Um sistema simples e funcional para academias gerenciarem alunos, treinos e pres
 
 ## Integrantes
 
-Marcos Vinicius Rodrigues Oliveira, Lucas Henrique da Silva Freire, Juan Peixoto de Oliveira
+Marcos Vinicius Rodrigues Oliveira, Lucas Henrique da Silva Freire e Juan Peixoto de Oliveira
 
 
 ## Rodando localmente
@@ -25,7 +25,7 @@ Entre no diretório do projeto
 
 ## Stack utilizada
 
-**Front-end:** Html, JavaScript, Css
+**Front-end:** Html, Css
 
 **Back-end:** PHP, MySQL
 
