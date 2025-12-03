@@ -1,44 +1,3 @@
-<?php
-$conexao = new mysqli("localhost", "root", "", "academia");
-$conexao->set_charset("utf8");
-
-if ($conexao->connect_error) {
-    die("Connection failed: " . $conexao->connect_error);
-}
-
-if (isset($_POST['matricular'])) {
-
-    $nome     = $_POST['nome'];
-    $cpf      = $_POST['cpf'];
-    $telefone = $_POST['telefone'];
-    $email    = $_POST['email'];
-    $idade    = $_POST['idade'];
-    $plano    = $_POST['plano'];
-
-    try {
-        $sql = $conexao->prepare("
-            INSERT INTO alunos (cpf, nome, plano, idade, email, telefone)
-            VALUES (?, ?, ?, ?, ?, ?)
-        ");
-
-        $sql->bind_param("ssssss", $cpf, $nome, $plano, $idade, $email, $telefone);
-
-        if ($sql->execute()) {
-            echo "<script>window.location.href = 'matriculasucesso.php';</script>";
-        }
-        
-        $sql->close();
-
-    } catch (mysqli_sql_exception $e) {
-
-        if ($e->getCode() == 1062) {
-            echo "<script>alert('Este CPF já foi cadastrado!');</script>";
-        } else {
-            echo "<script>alert('Erro ao matricular: " . $e->getMessage() . "');</script>";
-        }
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -90,6 +49,7 @@ if (isset($_POST['matricular'])) {
             margin-bottom: 10px;
             text-align: center;
             letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         .subtitle {
@@ -208,52 +168,9 @@ if (isset($_POST['matricular'])) {
     <div class="page-container">
         <header class="brand-header">TITANIUM FITNESS</header>
 
-        <h1 class="main-title">FINALIZE SUA INSCRIÇÃO</h1>
-        <p class="subtitle">Preencha seus dados para começar a treinar.</p>
+        <h1 class="main-title">MATRÍCULA CONCLUÍDA COM SUCESSO</h1>
+        <p class="subtitle">Aguarde pela definição dos seus treinos.</p>
 
-        <main class="form-box">
-            <form action="" method="POST">
-
-                <div class="input-group full-width">
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite seu nome" required>
-                </div>
-
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="cpf">CPF</label>
-                        <input type="text" id="cpf" name="cpf" class="form-control" placeholder="Digite seu CPF" maxlength="11" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="telefone">Telefone / WhatsApp</label>
-                        <input type="tel" id="telefone" name="telefone" class="form-control" placeholder="(00) 00000-0000" maxlength="11" required>
-                    </div>
-                </div>
-
-                <div class="input-group full-width">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="seu@email.com" required>
-                </div>
-
-                <div class="form-row">
-                    <div class="input-group">
-                        <label for="idade">Idade</label>
-                        <input type="number" id="idade" name="idade" class="form-control" placeholder="Anos" required min="14">
-                    </div>
-                    <div class="input-group">
-                        <label for="plano">Escolha o Plano</label>
-                        <select id="plano" name="plano" class="form-control" required>
-                            <option value="" disabled selected>Selecione...</option>
-                            <option value="Silver">Plano Silver</option>
-                            <option value="Gold">Plano Gold (Recomendado)</option>
-                            <option value="Titanium">Plano Titanium</option>
-                        </select>
-                    </div>
-                </div>
-
-                <button type="submit" name="matricular" class="btn-submit">CONFIRMAR MATRÍCULA</button>
-            </form>
-        </main>
     </div>
 
 </body>
