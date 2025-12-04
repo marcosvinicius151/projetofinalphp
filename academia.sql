@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alunos` (
-  `cpf` varchar(20) NOT NULL,
+  `cpf` varchar(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `plano` varchar(50) NOT NULL,
-  `idade` int(11) NOT NULL,
+  `plano` varchar(10) NOT NULL,
+  `idade` int(3) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `telefone` varchar(20) NOT NULL
+  `telefone` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -51,7 +51,7 @@ INSERT INTO `alunos` (`cpf`, `nome`, `plano`, `idade`, `email`, `telefone`) VALU
 --
 
 CREATE TABLE `treinos` (
-  `cpf_aluno` varchar(20) NOT NULL,
+  `cpf_aluno` varchar(11) NOT NULL,
   `dia_semana` varchar(20) NOT NULL,
   `treino` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
